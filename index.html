@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品作品集 · 两个 To B 项目</title>
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+  :root{
+    --ink:#20201c; --paper:#faf9f6; --card:#ffffff; --line:#e7e3d9;
+    --muted:#6e6b62; --gold:#d9b36a;
+    --green:#1b6b4a; --green-soft:#e9f2ed; --green-deep:#103f2e;
+    --orange:#c4531e; --orange-soft:#f9eee6;
+    --serif:"Noto Serif SC", Georgia, serif;
+    --sans:"Noto Sans SC", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(250,249,246,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .nav .brand{font-family:var(--serif);font-weight:700;font-size:16px}
+  .nav .links{display:flex;gap:24px;font-size:14px}
+  .nav .links a{color:var(--muted);transition:color .2s}
+  .nav .links a:hover{color:var(--ink)}
+
+  .hero{background:var(--green-deep);color:#f2efe7;padding:92px 0 84px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(217,179,106,.16);border-radius:50%;top:-190px;right:-150px}
+  .hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(32px,5vw,56px);line-height:1.18;max-width:820px;position:relative;z-index:1}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero .lead{margin-top:22px;font-size:16.5px;color:#c9cfcb;max-width:640px;font-weight:300;position:relative;z-index:1}
+  .hero .line3{margin-top:30px;display:flex;gap:9px;flex-wrap:wrap;position:relative;z-index:1}
+  .hero .line3 span{font-size:13px;padding:6px 13px;border:1px solid #3a4a42;border-radius:100px;color:#d9dedb}
+  .goals{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+  .goal{flex:1 1 300px;background:#17241d;border:1px solid #2b3a32;border-radius:14px;padding:18px;transition:border-color .25s}
+  .goal:hover{border-color:var(--gold)}
+  .goal .k{font-size:11px;letter-spacing:.14em;color:#9fb0a6}
+  .goal b{display:block;font-size:16px;color:#fff;margin-top:6px;font-family:var(--serif)}
+  .goal span{font-size:12.5px;color:#9fb0a6;line-height:1.6;display:block;margin-top:3px}
+
+  section.block{padding:80px 0;border-top:1px solid var(--line)}
+  .sec-head{max-width:760px}
+  .sec-head .k{font-size:12px;font-weight:500;color:var(--muted);margin-bottom:10px}
+  .sec-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(26px,3.8vw,38px);line-height:1.2}
+  .sec-head .p{margin-top:12px;font-size:16px;color:var(--muted)}
+  .role{margin-top:22px;display:inline-block;background:#fff;border:1px solid var(--line);border-left-width:4px;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:500}
+  .role.g{border-left-color:var(--green)} .role.o{border-left-color:var(--orange)}
+
+  .think{margin-top:38px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .think-h{display:flex;align-items:center;gap:9px;padding:13px 20px;font-size:12.5px;letter-spacing:.1em;color:#fff}
+  .think-h.g{background:var(--green)} .think-h.o{background:var(--orange)}
+  .think-h b{font-family:var(--serif);font-size:13.5px;letter-spacing:0}
+  .think-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .t-cell{padding:18px 20px;border-right:1px solid var(--line)}
+  .t-cell:last-child{border-right:none}
+  .t-cell .t-k{font-size:11.5px;font-weight:700;letter-spacing:.06em;margin-bottom:7px;display:flex;align-items:center;gap:7px}
+  .t-cell .t-k i{width:7px;height:7px;border-radius:50%;display:inline-block}
+  .t-cell p{font-size:13px;color:var(--muted);line-height:1.7}
+  .t-cell.g .t-k{color:var(--green)} .t-cell.g .t-k i{background:var(--green)}
+  .t-cell.o .t-k{color:var(--orange)} .t-cell.o .t-k i{background:var(--orange)}
+
+  .mech{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .m-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;transition:transform .25s ease,box-shadow .25s ease}
+  .m-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(40,35,20,.07)}
+  .m-card h4{font-size:16px;font-weight:700;line-height:1.45;margin-bottom:9px}
+  .m-card p{font-size:13.5px;color:var(--muted);line-height:1.75}
+  .m-card ul{list-style:none;margin-top:10px}
+  .m-card li{font-size:12.5px;color:var(--muted);padding:3px 0 3px 16px;position:relative;line-height:1.6}
+  .m-card li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:2px}
+  .green .m-card li::before{background:var(--green)} .orange .m-card li::before{background:var(--orange)}
+
+  .flow{margin-top:44px}
+  .flow-h{font-family:var(--serif);font-size:16.5px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .flow-h::before{content:"";width:20px;height:2px;background:currentColor}
+  .flow-track{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+  .fnode{flex:1;min-width:108px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 12px;text-align:center}
+  .fnode .step{font-size:10.5px;color:var(--muted);margin-bottom:4px}
+  .fnode .name{font-size:13px;font-weight:600;line-height:1.5}
+  .farrow{align-self:center;padding:0 6px;font-size:17px;color:#c4bdb0;flex:0 0 auto}
+  .states{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:15px}
+  .st{padding:6px 13px;border-radius:100px;font-size:12.5px;font-weight:500;background:#fff;border:1px solid var(--line)}
+  .st.done{background:var(--green);color:#fff;border-color:var(--green)}
+  .st.fail{color:var(--orange);border-color:var(--orange)}
+  .sarrow{color:#c4bdb0}
+
+  .dec{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .d-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .d-card .d-k{font-size:11.5px;font-weight:700;letter-spacing:.06em;margin-bottom:8px}
+  .green .d-card .d-k{color:var(--green)} .orange .d-card .d-k{color:var(--orange)}
+  .d-card h4{font-size:15.5px;font-weight:700;margin-bottom:6px}
+  .d-card p{font-size:13px;color:var(--muted);line-height:1.7}
+  .d-card p b{color:var(--ink);font-weight:600}
+
+  .gallery{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .shot{background:#fff;border:1px solid var(--line);border-radius:18px;padding:9px;box-shadow:0 10px 26px rgba(40,35,20,.05)}
+  .shot .scr{border-radius:12px;overflow:hidden;background:#f0ede6;aspect-ratio:9/17;display:flex}
+  .shot .scr.wide{aspect-ratio:4/3.2}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
+  .shot .cap{padding:10px 6px 3px;font-size:12.5px;color:var(--muted)}
+  .shot .cap b{display:block;color:var(--ink);font-size:13.5px}
+
+  .results{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .res{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+  .res .r-k{font-size:11px;letter-spacing:.1em;color:var(--muted)}
+  .res h4{font-size:14.5px;font-weight:700;margin:7px 0 5px}
+  .res p{font-size:13px;color:var(--muted);line-height:1.7}
+
+  .method{margin-top:38px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+  .method-h{font-family:var(--serif);font-size:16.5px;font-weight:700;margin-bottom:18px}
+  .m-chain{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+  .m-node{flex:1;min-width:120px;text-align:center;padding:10px 8px}
+  .m-node .ic{width:34px;height:34px;margin:0 auto 8px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:var(--green-soft)}
+  .m-node .ic svg{width:17px;height:17px;stroke:var(--green)}
+  .m-node b{display:block;font-size:13.5px;font-weight:700}
+  .m-node span{font-size:11.5px;color:var(--muted);line-height:1.55;display:block;margin-top:3px}
+  .m-arrow{align-self:center;color:#c4bdb0;font-size:16px;flex:0 0 auto}
+
+  footer{background:var(--green-deep);color:#cfd6d2;padding:70px 0 54px}
+  footer h2{font-family:var(--serif);font-size:26px;color:#fff;margin-bottom:12px}
+  footer p{font-weight:300;max-width:600px;font-size:15px}
+  .ctas{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .ctas span{border:1px solid #3a4a42;padding:9px 18px;border-radius:8px;font-size:14px;color:#d9dedb}
+  .note{margin-top:32px;font-size:12px;color:#8fa096}
+
+  @media(max-width:900px){
+    .think-grid{grid-template-columns:1fr 1fr}
+    .t-cell{border-right:none;border-bottom:1px solid var(--line)}
+    .mech{grid-template-columns:1fr;gap:14px}
+    .dec{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .results{grid-template-columns:1fr}
+    .flow-track{flex-direction:column}
+    .farrow{transform:rotate(90deg);align-self:center;padding:6px 0}
+    .m-chain{flex-direction:column}
+    .m-arrow{transform:rotate(90deg);align-self:center;padding:4px 0}
+    .nav .links{display:none}
+    .hero{padding:70px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap nav-in">
+  <div class="brand">产品作品集</div>
+  <div class="links">
+    <a href="#p1">极艾简约</a>
+    <a href="#p2">薪茸工</a>
+    <a href="#method">产品方法</a>
+    <a href="#contact">联系我</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <h1>从<em>问题</em>出发，<br>把业务做成<em>可验证的闭环</em>。</h1>
+  <p class="lead">你好，我是【你的名字】，产品助理。我用"先弄清问题，再设计方案，最后验证落地"的方式做产品。以下是两个已上线的 To B 项目，完整展示我如何思考与推进。</p>
+  <div class="line3">
+    <span>需求调研</span><span>流程设计</span><span>原型与 PRD</span><span>评审对齐</span><span>验收落地</span>
+  </div>
+  <div class="goals">
+    <a class="goal" href="#p1">
+      <div class="k">项目一 · 独立负责全产品</div>
+      <b>极艾简约 — 餐饮包厢预约 SaaS</b>
+      <span>纯 To B · 订阅制 · 从需求到上线</span>
+    </a>
+    <a class="goal" href="#p2">
+      <div class="k">项目二 · 负责新增模块</div>
+      <b>薪茸工 — HR 与无卡发薪</b>
+      <span>To B 平台能力 · V2.0 新增模块</span>
+    </a>
+  </div>
+</div></header>
+
+<section class="block green" id="p1"><div class="wrap">
+  <div class="sec-head">
+    <div class="k">To B SaaS · 微信小程序 + 管理后台</div>
+    <h2>极艾简约 · 餐饮包厢预约</h2>
+    <p class="p">替代中小餐饮商户的纸质台账，打通「预约 → 管理 → 续费」，让小微商户零门槛用上数字化。</p>
+  </div>
+  <div class="role g">我的角色：几乎独立负责全产品 —— 需求梳理 · 原型设计 · 迭代落地 · PRD 与验收</div>
+
+  <div class="think">
+    <div class="think-h g"><b>产品思考链</b>&nbsp;·&nbsp;从问题到验证</div>
+    <div class="think-grid">
+      <div class="t-cell g"><div class="t-k"><i></i>背景与问题</div><p>小微餐饮还靠本子记预约：漏记、撞单、客户资料散乱，老板离店就失控。</p></div>
+      <div class="t-cell g"><div class="t-k"><i></i>目标用户</div><p>单店/连锁餐饮老板与员工：要简单、不培训即用，成本敏感。</p></div>
+      <div class="t-cell g"><div class="t-k"><i></i>核心方案</div><p>极简预约 + 三角色权限 + 试用续费闭环，小程序即开即用。</p></div>
+      <div class="t-cell g"><div class="t-k"><i></i>验证落地</div><p>v1.x 功能全量上线，含支付与 AI 语音；后台运营闭环跑通。</p></div>
+    </div>
+  </div>
+
+  <div class="mech">
+    <div class="m-card"><h4>权限与数据隔离</h4><p>三角色各见所需：员工只见本人客户，管理员看全店，销售员管多门店。数据天然防抢单、防泄露。</p><ul><li>电话脱敏展示（138****8888）</li><li>他人记录可看不可删</li></ul></div>
+    <div class="m-card"><h4>试用-续费商业闭环</h4><p>新门店固定天数免费试用，到期前在「列表 + 我的」双触点提醒，三档套餐促成付费。</p><ul><li>基础 ¥999 / 专业 ¥1999 / 企业 ¥3999</li><li>未续费不可继续使用</li></ul></div>
+    <div class="m-card"><h4>统计与后台治理</h4><p>包厢使用率、午/晚时段、热门客户排行支撑经营决策；平台后台覆盖商户、订单、反馈全链路。</p><ul><li>操作日志审计 · 续费状态跟踪</li><li>AI 模块可配置（语音识别）</li></ul></div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-h" style="color:var(--green)">员工预约主流程</div>
+    <div class="flow-track">
+      <div class="fnode"><div class="step">STEP 1</div><div class="name">日历选日</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">STEP 2</div><div class="name">看包厢午/晚状态</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">STEP 3</div><div class="name">新建预约</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">STEP 4</div><div class="name">生成记录</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">STEP 5</div><div class="name">微信分享邀请函</div></div>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="d-card"><div class="d-k">关键产品决策</div><h4>范围收敛：先做透一件事</h4><p>早期规划覆盖餐饮+物业双场景与多项 AI 能力。<b>我推动收敛为「纯 B 端餐饮预约」单一主场景</b>，砍掉 C 端与低频能力，先跑通最小闭环再谈扩展。</p></div>
+    <div class="d-card"><div class="d-k">关键产品决策</div><h4>商业闭环前置设计</h4><p>把「试用 → 提醒 → 套餐 → 支付」当作产品主线设计，<b>而非功能堆叠后再补商业化</b>——让产品从第一天起就具备自我造血能力。</p></div>
+  </div>
+
+  <div class="gallery">
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/127FpzNE4W" alt="我的页面"></div><div class="cap"><b>我的</b>个人中心与续费入口</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/wLV1cbuyGG" alt="续费管理"></div><div class="cap"><b>续费管理</b>三档套餐对比</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/3Yn6XvksQQ" alt="员工与权限"></div><div class="cap"><b>员工与权限</b>角色与账号启停</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/Vhcw5vWz0a" alt="数据统计"></div><div class="cap"><b>数据统计</b>使用率 / 时段 / 客户</div></div>
+  </div>
+
+  <div class="results">
+    <div class="res"><div class="r-k">落地</div><h4>产品 v1.x 全量上线</h4><p>权限隔离、续费闭环（含支付）、数据统计、AI 语音识别、操作日志全部落地，小程序 + 后台双端成型。</p></div>
+    <div class="res"><div class="r-k">判断</div><h4>范围收敛让交付变快</h4><p>聚焦单一主场景后，团队交付路径清晰，从规划到上线节奏可控。</p></div>
+    <div class="res"><div class="r-k">结果</div><h4>商业化链路跑通</h4><p>「试用 → 提醒 → 套餐 → 支付」全链路上线，为产品持续付费建立基础。</p></div>
+  </div>
+</div></section>
+
+<section class="block orange" id="p2"><div class="wrap">
+  <div class="sec-head">
+    <div class="k">To B 平台能力 · 小程序 + PC 后台</div>
+    <h2>薪茸工 · HR 与无卡发薪</h2>
+    <p class="p">在存量灵活用工平台（商户 / 代理商 + 打工者）上新增 HR 模块，让「招人 → 到岗 → 发薪 → 对账」双端闭环，钱发得规范、可追溯。</p>
+  </div>
+  <div class="role o">我的角色：负责 V2.0 新增 HR 模块 —— 需求文档 · 流程设计 · 原型与验收</div>
+
+  <div class="think">
+    <div class="think-h o"><b>产品思考链</b>&nbsp;·&nbsp;从问题到验证</div>
+    <div class="think-grid">
+      <div class="t-cell o"><div class="t-k"><i></i>背景与问题</div><p>灵活用工人员流动快、发薪靠手工转账：记录乱、易漏发错发，劳资纠纷无据可查。</p></div>
+      <div class="t-cell o"><div class="t-k"><i></i>目标用户</div><p>商户 HR / 代理商：批量管理在岗人员并按时合规发薪；打工者要能确认自己到账。</p></div>
+      <div class="t-cell o"><div class="t-k"><i></i>核心方案</div><p>员工全生命周期管理 + 无卡发薪状态机 + 双端协同，用流程和规则兜住资金风险。</p></div>
+      <div class="t-cell o"><div class="t-k"><i></i>验证落地</div><p>PRD v1.0 成为研发依据，双端功能开发完成、进入测试验收。</p></div>
+    </div>
+  </div>
+
+  <div class="mech">
+    <div class="m-card"><h4>员工全生命周期</h4><p>手动 / 扫码 / Excel 三种录入，草稿核对后再提交；在职名单按任务项目聚合，档案、调岗、离职、合同提醒齐备。</p><ul><li>未分配任务项目禁止提交</li><li>合同到期（≤7/15/30 天）提醒</li></ul></div>
+    <div class="m-card"><h4>无卡发薪状态机</h4><p>制单 → 复核 → 放款全程状态机管理，驳回 / 失败可重提或扣回；一期仅开放付掌柜（无卡）通道。</p><ul><li>关键操作二次确认</li><li>失败重提 / 错发扣回闭环</li></ul></div>
+    <div class="m-card"><h4>双端协同与资金安全</h4><p>员工主数据以服务端为准，小程序 / PC 状态实时同步；乐观锁防重复打款，三级黑名单拦截风险人员。</p><ul><li>操作审计（人 / 时间 / IP）</li><li>平台仅汇总，不碰资金</li></ul></div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-h" style="color:var(--orange)">端到端主链路</div>
+    <div class="flow-track">
+      <div class="fnode"><div class="step">招人</div><div class="name">录入 / 候选人录用</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">到岗</div><div class="name">在职名单 / 档案</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">发薪</div><div class="name">制单 → 复核 → 放款</div></div><div class="farrow">→</div>
+      <div class="fnode"><div class="step">对账</div><div class="name">流水 / 回单 / 统计</div></div>
+    </div>
+    <div class="states">
+      <span class="st">草稿</span><span class="sarrow">→</span><span class="st">待复核</span><span class="sarrow">→</span><span class="st">待发放</span><span class="sarrow">→</span><span class="st done">已发放</span>
+      <span class="sarrow">｜</span><span class="st fail">驳回 / 撤回 / 失败 → 重提或扣回</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="d-card"><div class="d-k">关键产品决策</div><h4>用状态机兜住资金风险</h4><p>发薪是资金敏感操作。<b>我坚持用状态机 + 二次确认 + 乐观锁把"发错钱、重复发"变成流程上不可能</b>，而不是依赖事后人工补救。</p></div>
+    <div class="d-card"><div class="d-k">关键产品决策</div><h4>一期通道收口</h4><p>先只开放付掌柜（无卡）通道，微信 / 支付宝置灰且后端拒单。<b>降低资金渠道复杂度，先把流程验证跑顺，再谈扩渠道</b>。</p></div>
+  </div>
+
+  <div class="gallery">
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/bTrT2DmyrB" alt="HR 工作台"></div><div class="cap"><b>HR 工作台</b>模块统一入口</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/cwtdecun8s" alt="录入员工"></div><div class="cap"><b>录入员工</b>手动 / 扫码 / 导入</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/4PIE8tpEAI" alt="在职名单"></div><div class="cap"><b>在职名单</b>按项目聚合管理</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/HCZsPqUjNX" alt="制单发薪"></div><div class="cap"><b>制单发薪</b>无卡 / Excel 导入</div></div>
+    <div class="shot"><div class="scr"><img src="https://aka.doubaocdn.com/s/hxeR669kvU" alt="发薪审核"></div><div class="cap"><b>发薪审核</b>多状态批量处理</div></div>
+    <div class="shot"><div class="scr wide"><img src="https://aka.doubaocdn.com/s/jOvGyOJ0BY" alt="PC 代理商后台"></div><div class="cap"><b>PC 代理商后台</b>员工与发薪管理</div></div>
+  </div>
+
+  <div class="results">
+    <div class="res"><div class="r-k">落地</div><h4>PRD v1.0 成为研发依据</h4><p>角色矩阵、状态机、双端页面映射、验收 Checklist 完整输出，开发按文档评审、排期、验收。</p></div>
+    <div class="res"><div class="r-k">判断</div><h4>风险设计前置</h4><p>把资金安全（状态机、二次确认、通道白名单）设计在方案阶段，而非测试期打补丁。</p></div>
+    <div class="res"><div class="r-k">结果</div><h4>双端开发完成进入测试</h4><p>小程序与 PC 后台功能齐备，测试环境已开通（workertest.jiaiit.com），进入验收阶段。</p></div>
+  </div>
+</div></section>
+
+<section class="block" id="method"><div class="wrap">
+  <div class="sec-head">
+    <div class="k">产品思维沉淀</div>
+    <h2>我如何推进一个产品需求</h2>
+    <p class="p">两个项目跑完的同一套方法：先问为什么，再定做什么，最后验证做得对不对。</p>
+  </div>
+  <div class="method">
+    <div class="method-h">从 0 到 1 的推进链路</div>
+    <div class="m-chain">
+      <div class="m-node"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><b>用户与业务调研</b><span>听现场、看台账，找到真问题而不是伪需求</span></div>
+      <div class="m-arrow">→</div>
+      <div class="m-node"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M4 19V5M4 5h12l-3 4 3 4H4M20 5v14"/></svg></div><b>需求拆解与流程</b><span>画出角色、状态、边界，把模糊变成可评审</span></div>
+      <div class="m-arrow">→</div>
+      <div class="m-node"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><b>原型与 PRD</b><span>交互原型 + 验收 Checklist，开发测试同一套标准</span></div>
+      <div class="m-arrow">→</div>
+      <div class="m-node"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 21a9 9 0 1 1 9-9"/><path d="M12 12l5-5M9 21h6"/></svg></div><b>评审对齐</b><span>拉齐开发、测试、设计，把歧义消灭在开工前</span></div>
+      <div class="m-arrow">→</div>
+      <div class="m-node"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg></div><b>验收与复盘</b><span>按 Checklist 逐项验收，上线后复盘再迭代</span></div>
+    </div>
+  </div>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <h2>期待与你聊聊产品</h2>
+  <p>我擅长把模糊的业务需求拆成清晰的流程、原型与验收标准，并推动研发落地。如果你在找一位踏实、注重闭环的产品同学，欢迎联系我。</p>
+  <div class="ctas">
+    <span>姓名：【你的名字】</span>
+    <span>邮箱：【你的邮箱】</span>
+    <span>微信：【你的微信号】</span>
+  </div>
+  <p class="note">页面截图均来自项目实际原型与线上版本；出于保密需要，客户与员工敏感信息已脱敏。本页为个人作品展示，与所属公司无关。</p>
+</div></footer>
+
+</body>
+</html>
